@@ -33,7 +33,7 @@ class Student
   def save
   #this method really persists the student instance copy to the database
       if self.id
-          self.update
+          self.update  #if there already exists an object instance (row in db) then just update it
       else
           sql = <<-SQL
             INSERT INTO students (name, grade)
