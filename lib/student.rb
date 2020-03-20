@@ -80,6 +80,4 @@ class Student
         DB[:conn].execute(sql, self.name, self.album, self.id)
     end
 
-
-
 end
