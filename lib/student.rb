@@ -58,7 +58,7 @@ class Student
       name = row[1]
       grade = row[2]
       self.new(name,grade,id)
-      new_student  # return the newly created instance
+      #new_student  # return the newly created instance
   end
 
   def self.find_by_name(name)
