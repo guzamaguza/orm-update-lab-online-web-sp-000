@@ -32,13 +32,19 @@ class Student
 
   def save
   #this method really persists the student instance copy to the database
-  sql = <<-SQL
-    INSERT INTO students (name, grade)
-    VALUES (?, ?)
-  SQL
+      sql = <<-SQL
+        INSERT INTO students (name, grade)
+        VALUES (?, ?)
+      SQL
 
-  DB[:conn].execute(sql, self.name, self.grade)
-  @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
-end
+      DB[:conn].execute(sql, self.name, self.grade)
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
+  end
+
+  def self.create(name:, grade:)
+      student = Student.new(name, grade)
+      student.save
+      student
+  end
 
 end
